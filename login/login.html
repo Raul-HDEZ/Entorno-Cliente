@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        input{
+            margin-top: 5px;   
+            border-radius: 7px;
+            border-color: black; 
+        }
+    </style>
+    <script type="text/javascript" src="script.js"></script>
+    <h3 id="inicio">Inicio de Sesion</h3>
+    <form action="">
+        usuario:
+        <input type="text" placeholder="usuario" name="usuario" id="usr">
+        <br>
+        clave:
+        <input type="password" placeholder="clave" name="clave" id="clave">
+        <br>
+        eres un robot?:
+        <input type="radio" name="robot" id="robotsi"> Si
+        <input type="radio" name="robot" id="robotno"> No
+        <p id="rtexto"></p>
+        <br>
+        <input type="button" value="Validar" class="enviar" onclick="Enviar()">
+    </form>  
+</body>
+</html>
