@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+</head>
+<body>
+    NUMERO
+    <textarea name="" id="num" cols="30" rows="1"></textarea> <br>
+    <input type="button" value="Enviar" id="Enviar" onclick="salida()"><br>
+    SALIDA
+    <textarea name="" id="area" cols="50" rows="1"></textarea>
+    <script>
+        var str = "";
+        function salida() {
+            let n = document.getElementById("num").value;
+            for (let index = 0; index <= n; index+=2) {
+            str = str + index + " ";
+            console.log(index);
+            document.getElementById("area").value = str;
+        }
+        str = "";
+        }
+    </script>
+</body>
+</html>
