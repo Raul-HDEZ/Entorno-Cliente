@@ -7,14 +7,15 @@
     <title>Tirada de dados</title>
 </head>
 <body>
+    <img src="" name="midado" width="63" height="64">
     <script>
         // Simulacion de la tirada de un dado,
         var min = 1;
         var max = 6;
         var dado = Math.floor(Math.random()*(max-min+1)+min);
-        //document.images["dado"].scr="img/dado-" + dado +".jpg";
         document.write("<h1>"+dado+"</h1>");
-        document.write("<img src='img/dado-" + dado +".jpg'>");
+        //document.write("<img src='img/dado-" + dado +".jpg'>");
+        document.images["midado"].src="img/dado-"+ dado + ".jpg"
 
     </script>
 </body>
