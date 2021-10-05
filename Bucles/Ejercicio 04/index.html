@@ -10,11 +10,16 @@
     <textarea name="" id="area" cols="30" rows="10"></textarea>
     <script>
         var str = "";
-        for (let index = 0; index <= 10; index+=2) {
-            str = str + index + " ";
-            console.log(index);
-            document.getElementById("area").value = str;
-            
+         for (let index = 2; index <= 10; index+=2) {
+             str = str + index + " ";
+             console.log(index);
+             document.getElementById("area").value = str;
+        }
+
+        for (let index = 0; index <= 10; index++) {
+            if (index%2) {
+                break;
+            }
         }
     </script>
 </body>
