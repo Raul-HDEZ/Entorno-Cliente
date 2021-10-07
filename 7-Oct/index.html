@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-Oct</title>
+</head>
+<body>
+    <form action="">
+        DIA: <input type="number" name="" id="dia"><br>
+        MES: <input type="number" name="" id="mes"> (Enero 0 - Febrero 1 .....) <br>
+        AÑO: <input type="number" name="" id="año"><br>
+        <input type="submit" value="Enviar" onclick="Enviar()">
+    </form>
+    <script>
+        function Enviar() {
+          dia = document.getElementById("dia").value;
+          mes = document.getElementById("mes").value;
+          año = document.getElementById("año").value;
+          fecha = new Date(año,mes,dia);
+          dieciocho = 567648000000;
+          //var asd = 18 * 365 *24 * 60 * 60 * 1000;
+          actual = new Date();
+          if ((actual - fecha )>=dieciocho) {
+              console.log("es mayor de edad");
+          }else console.log("Es menor de edad");  
+        }
+        
+    </script>
+    
+</body>
+</html>
