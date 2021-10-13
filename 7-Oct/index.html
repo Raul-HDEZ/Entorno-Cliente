@@ -9,7 +9,7 @@
 <body>
     <form action="">
         DIA: <input type="number" name="" id="dia"><br>
-        MES: <input type="number" name="" id="mes"> (Enero 0 - Febrero 1 .....) <br>
+        MES: <input type="number" name="" id="mes"> (Enero 0 - Febrero 1 ...) <br>
         AÑO: <input type="number" name="" id="año"><br>
         <input type="submit" value="Enviar" onclick="Enviar()">
     </form>
@@ -23,8 +23,8 @@
           //var asd = 18 * 365 *24 * 60 * 60 * 1000;
           actual = new Date();
           if ((actual - fecha )>=dieciocho) {
-              console.log("es mayor de edad");
-          }else console.log("Es menor de edad");  
+              document.write("es mayor de edad");
+          }else document.write("Es menor de edad");  
         }
         
     </script>
