@@ -14,17 +14,18 @@
             var numero = 0;
             var suma= 0;
             do {
-                numero = parseInt(prompt("Dame un numero"));
+                numero = prompt("Dame un numero");
+                if (numero == null) {
+                    return null;
+                } else
                 if (!isNaN(numero)) {
+                numero=parseInt(numero);
                 contador++;
                 suma += numero;  
                 }
-                if (numero == null) {
-                    return null;
-                }
-            
-            } while (numero!=0);
-            return suma/contador;
+                
+            } while (numero!=0 || numero == null);
+            return (suma/contador);
         }
         res = pidenum();
         if (res == null) {
