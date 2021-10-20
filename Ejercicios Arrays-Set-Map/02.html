@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polialfabético</title>
+</head>
+<body>
+    <form action="">
+        Texto <input type="text" id="text">
+        Clave <input type="text" id="clave">
+        <input type="submit" value="Enviar" onclick="Enviar()">
+    </form>
+    <script>
+        function Enviar() {
+            let texto = document.getElementById("text").value;
+            let clave = document.getElementById("clave").value;
+            let arraytext = texto.split("");
+            let arraynum = clave.split("");
+            let newarray = clave.split("");
+
+            for (let i = 0; i < arraytext.length/arraynum.length; i++) {
+                newarray = newarray.concat(arraynum);
+            }
+
+            for (let index = 0; index < arraytext.length; index++) {
+                var elemento = arraytext[index];
+                var suma = newarray[index];
+
+                elemento += suma
+            }
+            console.log(arraytext);
+        }
+    </script>
+</body>
+</html>
