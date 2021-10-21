@@ -7,10 +7,12 @@
     <title>Polialfabético</title>
 </head>
 <body>
-    <form action="">
+    <form action="" method="get">
         Texto <input type="text" id="text">
-        Clave <input type="text" id="clave">
-        <input type="submit" value="Enviar" onclick="Enviar()">
+        Clave <input type="number" id="clave">
+        <input type="button" value="Enviar" onclick="Enviar()"> 
+        <br><br>
+        <p id="res"></p>
     </form>
     <script>
         function Enviar() {
@@ -19,18 +21,20 @@
             let arraytext = texto.split("");
             let arraynum = clave.split("");
             let newarray = clave.split("");
+            let arrayres= [];
 
             for (let i = 0; i < arraytext.length/arraynum.length; i++) {
                 newarray = newarray.concat(arraynum);
             }
 
             for (let index = 0; index < arraytext.length; index++) {
-                var elemento = arraytext[index];
-                var suma = newarray[index];
-
-                elemento += suma
+                let elemento = parseInt(arraytext[index].charCodeAt(0));
+                let suma = parseInt(newarray[index]);
+                elemento = elemento+suma;
+                arrayres[index]= String.fromCharCode(elemento);
             }
-            console.log(arraytext);
+            document.getElementById("res").innerHTML = arrayres;
+            
         }
     </script>
 </body>

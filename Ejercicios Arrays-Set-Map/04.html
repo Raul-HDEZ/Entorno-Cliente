@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es Math.random de verdad aleatorio?</title>
+</head>
+<body>
+    <p id="res"></p>
+    <script>
+        let mapa = new Map();
+        for (let index = 0; index < 10000; index++) {
+            let ran = Math.floor(Math.random() * 10) + 1;
+            if (mapa.has(ran)) {
+                let tmp = mapa.get(ran);
+                mapa.set(ran, ++tmp)
+            } else {
+                mapa.set(ran, 1);
+            }
+        }
+        console.log(mapa);
+        res = document.getElementById("res").innerHTML
+        document.write("<table border='1px'>");
+        //intentar ordenar el mapa
+        for ([clave,valor] of mapa){
+            document.write("<tr><td>"+clave+"</td><td>"+valor+"</td></tr>");
+        }
+        document.write("</table>");
+
+    </script>
+</body>
+</html>
