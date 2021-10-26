@@ -32,8 +32,9 @@
                 let suma = parseInt(newarray[index]);
                 elemento = elemento+suma;
                 arrayres[index]= String.fromCharCode(elemento);
+                str = arrayres.join("");
             }
-            document.getElementById("res").innerHTML = arrayres;
+            document.getElementById("res").innerHTML = str;
             
         }
     </script>
