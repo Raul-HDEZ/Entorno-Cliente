@@ -10,10 +10,23 @@
     <script>
         arraydado = [4,0,3,4,7,3,5,8,1,8,8,0,2,3,1,2,5,7,3,2,5,1];
         document.writeln(arraysinrepeticion(arraydado));
+        document.writeln("<br>");
+        document.writeln(arraysbien(arraydado));
 
         function arraysinrepeticion(array) {
             let nor = new Set(array);
             let newarray = [...nor];
+            return newarray;
+        }
+
+        function arraysbien(array) {
+            let newarray = [];
+            for (let index = 0; index < arraydado.length; index++) {
+                const element = array[index];
+                if (newarray.indexOf(element) == -1) {
+                    newarray.push(element);
+                }
+            }
             return newarray;
         }
     </script>
