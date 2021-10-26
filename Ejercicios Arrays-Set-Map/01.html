@@ -16,7 +16,7 @@
         function arraysinrepeticion(array) {
             let nor = new Set(array);
             let newarray = [...nor];
-            return newarray;
+            return newarray.sort();
         }
 
         function arraysbien(array) {
@@ -27,7 +27,7 @@
                     newarray.push(element);
                 }
             }
-            return newarray;
+            return newarray.sort();
         }
     </script>
 </body>
