@@ -23,7 +23,7 @@
             let newarray = [];
             for (let i in array) {
                 const element = array[i];
-                if (newarray.indexOf(element) == -1) {
+                if (!newarray.includes(element)) {
                     newarray.push(element);
                 }
             }
