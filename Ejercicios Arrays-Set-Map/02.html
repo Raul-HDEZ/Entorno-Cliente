@@ -8,10 +8,20 @@
 </head>
 <body>
     <form action="" method="get">
-        Texto <input type="text" id="text">
-        Clave <input type="number" id="clave">
-        <input type="button" value="Enviar" onclick="Enviar()"> 
-        <br><br>
+        <form action="">
+            Texto <input type="text" id="text">
+            Clave <input type="number" id="clave">
+            <input type="button" value="Enviar" onclick="Enviar()">
+            <br><br>
+        </form>
+        <form action="">
+            Texto Cifrado <input type="text" id="cifrado">
+            Clave <input type="number" id="cifrado-clave">
+            <input type="button" value="Enviar" onclick="Descifrar()">
+            <br><br>
+        </form>
+        
+        
         <p id="res"></p>
     </form>
     <script>
@@ -35,7 +45,28 @@
                 str = arrayres.join("");
             }
             document.getElementById("res").innerHTML = str;
-            
+        }
+
+        function Descifrar() {
+            let texto = document.getElementById("cifrado").value;
+            let clave = document.getElementById("cifrado-clave").value;
+            let arraytext = texto.split("");
+            let arraynum = clave.split("");
+            let newarray = clave.split("");
+            let arrayres= [];
+
+            for (let i = 0; i < arraytext.length/arraynum.length; i++) {
+                newarray = newarray.concat(arraynum);
+            }
+
+            for (let index = 0; index < arraytext.length; index++) {
+                let elemento = parseInt(arraytext[index].charCodeAt(0));
+                let suma = parseInt(newarray[index]);
+                elemento = elemento-suma;
+                arrayres[index]= String.fromCharCode(elemento);
+                str = arrayres.join("");
+            }
+            document.getElementById("res").innerHTML = str;
         }
     </script>
 </body>
