@@ -4,30 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Es Math.random de verdad aleatorio?</title>
+    <title>Mostrar asteriscos para un array</title>
 </head>
 <body>
     <p id="res"></p>
     <script>
-        let mapa = new Map();
-        for (let index = 0; index < 10000; index++) {
-            let ran = Math.floor(Math.random() * 10) + 1;
-            if (mapa.has(ran)) {
-                let tmp = mapa.get(ran);
-                mapa.set(ran, ++tmp)
-            } else {
-                mapa.set(ran, 1);
-            }
+        let arr = [20];
+        for (let index = 0; index < 20; index++) {
+            let ran = Math.floor(Math.random() * 50) + 1;
+                let asteriscos = "";
+                for (let index = 0; index < ran; index++) {
+                    asteriscos += "*";
+                }
+                arr[index] = asteriscos;
         }
-        console.log(mapa);
+
         res = document.getElementById("res").innerHTML
         document.write("<table border='1px'>");
         //intentar ordenar el mapa
-        for ([clave,valor] of mapa){
-            document.write("<tr><td>"+clave+"</td><td>"+valor+"</td></tr>");
+        for (let index = 0; index < arr.length; index++) {
+            document.write("<tr><td>"+arr[index]+"</td>");
+            
         }
         document.write("</table>");
-
     </script>
 </body>
 </html>
