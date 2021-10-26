@@ -21,8 +21,8 @@
 
         function arraysbien(array) {
             let newarray = [];
-            for (let index = 0; index < arraydado.length; index++) {
-                const element = array[index];
+            for (let i in array) {
+                const element = array[i];
                 if (newarray.indexOf(element) == -1) {
                     newarray.push(element);
                 }
