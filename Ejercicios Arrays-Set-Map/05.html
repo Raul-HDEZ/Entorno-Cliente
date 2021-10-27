@@ -21,7 +21,7 @@
         }
         console.log(mapa);
         res = document.getElementById("res").innerHTML
-        document.writeln("<table border='1px'>");
+        document.writeln("<table border='1px' style='border-collapse: collapse'>");
         //intentar ordenar el mapa
         for ([clave,valor] of mapa){
             document.writeln("<tr><td>"+clave+"</td><td>"+valor+"</td></tr>");
