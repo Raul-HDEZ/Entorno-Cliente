@@ -17,11 +17,8 @@
         function Enviar() {
             var texto = document.getElementById("texto").value;
             var output = document.getElementById("res");
-            console.log(texto);
             texto = quitarcaracteres(texto);
             var reverse = Array.from(texto).reverse().join('');
-            console.log(texto);
-            console.log(reverse);
             if (texto == reverse) {
                 var salida = document.getElementById("texto").value + " es un palindromo"
             } else var salida = document.getElementById("texto").value + " no es un palindromo"
