@@ -17,6 +17,7 @@
         function Enviar() {
             var texto = document.getElementById("texto").value;
             var output = document.getElementById("res");
+
             texto = quitarcaracteres(texto);
             var reverse = Array.from(texto).reverse().join('');
             if (texto == reverse) {
@@ -38,7 +39,7 @@
             cadena = cadena.replaceAll("ù", 'u');
             return cadena;
         }
-
+        
     </script>
 </body>
 </html>
