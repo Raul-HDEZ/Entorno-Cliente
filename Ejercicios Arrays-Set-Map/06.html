@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromos</title>
+</head>
+<body>
+    <form>
+        Introduce el texto: <input type="text" id="texto">
+        <input type="button" value="Validar" onclick="Enviar()">
+    </form>
+    <p id="res"></p>
+    <script>
+
+        function Enviar() {
+            var texto = document.getElementById("texto").value;
+            var output = document.getElementById("res");
+            console.log(texto);
+            texto = quitarcaracteres(texto);
+            var reverse = Array.from(texto).reverse().join('');
+            console.log(texto);
+            console.log(reverse);
+            if (texto == reverse) {
+                var salida = document.getElementById("texto").value + " es un palindromo"
+            } else var salida = document.getElementById("texto").value + " no es un palindromo"
+            document.getElementById("res").innerHTML = salida;
+        }
+        
+        function quitarcaracteres(cadena){
+            cadena = cadena.toLowerCase();
+            var specialChars = "!@#$^&%*()+=-[]\/{}|:<>?,.; ";
+            for (var i = 0; i < specialChars.length; i++) {
+                cadena = cadena.replaceAll(specialChars[i], '');
+            }
+            cadena = cadena.replaceAll("á", 'a');
+            cadena = cadena.replaceAll("é", 'e');
+            cadena = cadena.replaceAll("í", 'i');
+            cadena = cadena.replaceAll("ó", 'o');
+            cadena = cadena.replaceAll("ù", 'u');
+            return cadena;
+        }
+
+    </script>
+</body>
+</html>
