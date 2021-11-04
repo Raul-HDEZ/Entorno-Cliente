@@ -7,13 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-   
+
     <script>
          frase = prompt("frase");
          guarda = frase.split(' ');
 
         for (let i = 0; i < guarda.length; i++) {
-            document.writeln("Palabra "+i+"<input type='text'> <br>");
+            document.writeln("Palabra "+i+"   <input type='text'> <br> <br>");
         }
         document.writeln("<input type='submit' value='Presentar' onclick='presentar()''>");
         presentar();
