@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Tabla</title>
+</head>
+<body>
+    <script>
+        // function gentabla(filas,columnas,color) {
+        //     filas = (typeof filas !== 'undefined') ?  filas : 10;
+        //     columnas = (typeof columnas !== 'undefined') ?  columnas : 4;
+        //     color = (typeof color !== 'undefined') ?  color : "black";
+
+        //     var tabla   = document.createElement("table");
+        //     let tbody = document.createElement('tbody');
+        //     for (let i = 0; i < filas; i++) {
+        //         var fila = document.createElement("tr");
+        //         for (let d = 0; d < columnas; d++) {
+        //             var columna = document.createElement("td");
+        //             columna.appendChild('Something');
+        //             fila.appendChild(columna);
+        //         }
+        //     }
+        //     body.appendChild(tabla);
+        //     tabla.setAttribute("border", "1");
+        //     document.getElementById('body').appendChild(table);
+        // }
+
+        function gentabla(filas,columnas,color) {
+            filas = (typeof filas !== 'undefined') ?  filas : 10;
+            columnas = (typeof columnas !== 'undefined') ?  columnas : 4;
+            color = (typeof color !== 'undefined') ?  color : "black";
+
+            document.write("<table border='1px' style='border-collapse: collapse; border-color:"+ color+"'>");
+            for (let i = 0; i < filas; i++) {
+                document.write("<tr>");
+                for (let d = 0; d < columnas; d++) {
+                    document.write("<td>HOLA</td>");
+                }
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+        gentabla(10,5,"blue");
+    </script>
+</body>
+</html>
