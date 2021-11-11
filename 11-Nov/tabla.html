@@ -33,11 +33,11 @@
             columnas = (typeof columnas !== 'undefined') ?  columnas : 4;
             color = (typeof color !== 'undefined') ?  color : "black";
 
-            document.write("<table border='1px' style='border-collapse: collapse; border-color:"+ color+"'>");
+            document.write("<table border='1px' style='border-collapse: collapse; border-color:"+ color+"; width:100%; height:30px;'>");
             for (let i = 0; i < filas; i++) {
                 document.write("<tr>");
                 for (let d = 0; d < columnas; d++) {
-                    document.write("<td>HOLA</td>");
+                    document.write("<td>  HOLA  </td>");
                 }
                 document.write("</tr>");
             }
