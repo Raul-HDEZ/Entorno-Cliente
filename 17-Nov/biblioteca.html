@@ -12,7 +12,7 @@
         <pre>Autor                  <input type="text" id="autor">      <input type="button" id="añadir" value="AÑADIR" onclick="añade()"> </pre>
         <pre>Editorial              <input type="text" id="editorial">      <input type="button" id="consultar" value="CONSULTAR" onclick="consulta()"> </pre>
         <pre>Año de publicación     <input type="text" id="publicación"></pre>
-        <pre>SIGNATURA              <input type="text" id="signatura"></pre>
+        <pre>SIGNATURA              <input type="text" id="signatura" readonly></pre>
     </form>
 </body>
 </html>
@@ -29,18 +29,23 @@
         this.año_publicacion = pub;
         this.signatura = cont;
     }
-
+    function limpia() {
+        document.getElementById("título").value = '';
+        document.getElementById("autor").value = '';
+        document.getElementById("editorial").value = '';
+        document.getElementById("publicación").value = '';
+    }
     function añade () {
 
         var título = document.getElementById("título").value;
         var autor = document.getElementById("autor").value;
         var editorial = document.getElementById("editorial").value;
-        var año = parseInt(document.getElementById("publicación").value);
+        var año = document.getElementById("publicación").value;
         var signatura = cont++;
 
         var Ejemplar = new Libro (título, autor, editorial, año, signatura);
         biblioteca.push(Ejemplar);
-
+        limpia();
     }
 
     function consulta() {
@@ -57,7 +62,7 @@
                 document.getElementById("signatura").value = biblioteca[i].signatura;
             }
         }
-
+        limpia();
     }
 
 </script>
