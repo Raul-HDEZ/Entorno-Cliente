@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+</head>
+<body>
+    <form>
+        <pre>titulo <input type="text" id="titulo"></pre>
+        <pre>Autor <input type="text" id="autor">  </pre>    
+        <pre>Editorial <input type="text" id="editorial"></pre>
+        <pre>Año de publicación <input type="text" id="publicacion"></pre>
+        <pre>SIGNATURA  <input type="text" id="signatura" readonly></pre>
+        
+        <input type="button" id="añadir" value="AÑADIR" onclick="añade()">
+        <input type="button" id="consultar" value="CONSULTAR" onclick="consulta()">
+    </form>
+
+    <script>
+        var contador = 1;
+
+        function Libro (tittle,author,edito,year,signatura) {
+            this.titulo = tittle;
+            this.autor = author;
+            this.editorial = edito;
+            this.anno = year;
+            this.signature = signatura;
+        }
+        var biblioteca = new Array();
+
+        function limpiar() {
+            document.getElementById('titulo').value = '';
+            document.getElementById('autor').value = '';
+            document.getElementById('editorial').value = '';
+             document.getElementById('publicacion').value = '';
+        }
+
+        function añade() {
+            tittle = document.getElementById('titulo').value;
+            author = document.getElementById('autor').value;
+            edito = document.getElementById('editorial').value;
+            year = document.getElementById('publicacion').value;
+            signatura = contador++;
+            console.log(tittle + author + edito + year + year);
+
+            book = new Libro(tittle,author,edito,year,signatura);
+            biblioteca.push(book);
+            limpiar();
+        }
+
+        function consulta() {
+            for (let i = 0; i < biblioteca.length; i++) {
+                if (biblioteca[i].titulo == titulo.value) {
+                    document.getElementById('titulo').value = biblioteca[i].titulo;
+                    document.getElementById('autor').value = biblioteca[i].autor;
+                    document.getElementById('editorial').value = biblioteca[i].editorial;
+                    document.getElementById('publicacion').value = biblioteca[i].anno;
+                    document.getElementById('signatura').value = biblioteca[i].signature;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
