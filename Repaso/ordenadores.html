@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenadores</title>
+</head>
+<body>
+    <form>
+        Marca <input type="text" id='marca'><br><br>
+        Modelo <input type="text" id="modelo"> <br><br>
+        RAM <input type="text" id="ram"><br><br>
+        SD  <input type="text" id="sd"> <br><br>
+        Procesador <input type="text" id="procesador"><input type="file" id="pimagen"><br><br>
+        Grafica <input type="text" id="grafica"><input type="file" id="gimagen"><br><br>
+        
+        <input type="button" id="añadir" value="AÑADIR" onclick="añade()"><br><br>
+        <input type="button" id="consultar" value="CONSULTAR" onclick="consulta()">
+    </form>
+</body>
+
+<script>
+    function Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen) {
+        this.marca=marca;
+        this.modelo=modelo;
+        this.ram=ram;
+        this.sd=sd;
+        this.procesador=procesador;
+        this.pimagen=pimagen;
+        this.grafica=grafica;
+        this.gimagen=gimagen;
+    }
+
+    Ordenador.prototype.toString = function() {
+        return "Marca: "+this.marca+" Modelo: "+this.modelo+" Ram: "+this.ram+" SD: "+this.sd+" Procesador: "+this.procesador+" - "+this.pimagen+" Grafica: "+this.grafica+" - "+this.gimagen;
+    }
+
+    lista = new Array();
+
+    function añade() {
+        marca=document.getElementById('marca').value;
+        modelo=document.getElementById('marca').value;
+        ram=document.getElementById('marca').value;
+        sd=document.getElementById('marca').value;
+        procesador=document.getElementById('marca').value;
+        pimagen=document.getElementById('pimagen').value;
+        grafica=document.getElementById('marca').value;
+        gimagen=document.getElementById('gimagen').value;
+
+        pc = new Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen);
+        document.write(pc);
+        lista.push(pc);
+    }
+
+    function consulta() {
+        for (let i = 0; i < lista.length; i++) {
+            console.log(lista[i]);
+        }
+    }
+
+
+</script>
+</html>
