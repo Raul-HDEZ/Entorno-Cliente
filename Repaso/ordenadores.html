@@ -40,22 +40,22 @@
 
     function añade() {
         marca=document.getElementById('marca').value;
-        modelo=document.getElementById('marca').value;
-        ram=document.getElementById('marca').value;
-        sd=document.getElementById('marca').value;
-        procesador=document.getElementById('marca').value;
+        modelo=document.getElementById('modelo').value;
+        ram=document.getElementById('ram').value;
+        sd=document.getElementById('sd').value;
+        procesador=document.getElementById('procesador').value;
         pimagen=document.getElementById('pimagen').value;
-        grafica=document.getElementById('marca').value;
+        grafica=document.getElementById('grafica').value;
         gimagen=document.getElementById('gimagen').value;
 
         pc = new Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen);
-        document.write(pc);
         lista.push(pc);
     }
 
     function consulta() {
         for (let i = 0; i < lista.length; i++) {
             console.log(lista[i]);
+            document.write(lista[i]+"<br>");
         }
     }
 
