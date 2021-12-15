@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo-varios-forms</title>
+</head>
+<body>
+    <p align="center"><b>VER PROPIEDADES DEL DOCUMENTO</b></p>
+    <center>
+        <a href="Ejemplo-1-uso-document.html" name="externo1">Ver ejemplo apertura ventanas</a>
+        <A href="#Formulario2" name="interno0">Ir a Formulario 2</A>
+        <a href="#caracteristicas" name="interno1">Ir a características</a>
+    <hr>
+     <form action="" name="Formulario1">
+        <table name="t0-1">
+            <tr><td><img src="cascada.jpg" alt="" id="img0-1" style="height: 40mm;width: 40mm;"></td><td><label for="">Nombre</label><input type="textbox" id="nombre"><br><br><br><label for="">Apellidos</label><input type="textbox" id="apellidos"></td></tr>
+            <tr><td><input type="button" value="Aceptar" id="bton-aceptar-01"><br></td><td><input type="button" value="cancelar" id="bton-cancel-01"><br></td></tr>
+        </table>
+     </form>
+     <hr>   
+     <form action="" name="Formulario2">
+        <table>
+            <tr><td><img src="playa.jpg" alt="" id="img0-2" style="height: 40mm;width: 40mm;"></td><td><label for="">Nombre</label><input type="textbox" id="nombre"><br><br><br><label for="">Apellidos</label><input type="textbox" id="apellidos"></td></tr>
+            <tr><td><input type="button" value="Aceptar" id="bton-aceptar-02"><br></td><td><input type="button" value="cancelar" id="bton-aceptar-02"><br></td></tr>
+        </table>
+     </form>
+    
+    <hr>
+    <A NAME="caracteristicas" name="interno2"></A> 
+    <b><center>CARACTERISTICAS DEL DOCUMENTO</b><br>
+    </center>
+    
+    <script>
+
+        var internos = "";
+        var externos = "";
+        for (const i of document.links) {
+            internos += i.name + " ";
+        }
+
+        for (const i of document.anchors) {
+            externos += i.name + " ";
+        }
+
+        document.writeln("Número de imágenes: " +document.images.length + "<br>");
+        document.writeln("Número de enlaces externos: " +document.links.length + "<br>");
+        document.writeln("Nombre enlaces extenos:	: " +externos + "<br>");
+        document.writeln("Número de enlaces internos: " +document.anchors.length + "<br>");
+        document.writeln("Nombre enlaces internos:	: " +internos + "<br>");
+        document.writeln("Número de formularios: " +document.forms.length + "<br>");
+        document.writeln("Fecha última modificación: " +document.lastModified + "<br>");
+
+        for (const i of document.forms) {
+            for (const d of i.elements) {
+                document.write("el elemento "+d +"tiene un id de "+d.id+" y un name de " +d.name+"<br>");
+            }
+        }
+
+//  Número de imágenes:
+// Número de enlaces externos:
+// Enlaces externos:
+// Número de enlaces internos:
+// Nombre enlaces internos:	
+// Número de formularios:
+// Fecha última modificación:
+
+    </script>
+</body>
+</html>
