@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+</head>
+<center>
+<table>
+    <tr>
+        <td id="horas">00</td>
+        <td>:</td>
+        <td id="minutos">00</td>
+        <td>:</td>
+        <td id="segundos">00</td>
+    </tr>
+</table>
+</center>
+<body>
+    <script>
+        let mhoras = document.getElementById("horas");
+        let mminutos = document.getElementById("minutos");
+        let msegundos = document.getElementById("segundos");
+
+        setInterval(function() {
+            let fecha = new Date();
+            mhoras.innerHTML=fecha.getHours();
+            mminutos.innerHTML=fecha.getMinutes();
+            msegundos.innerHTML =fecha.getSeconds();
+        }, 1000);
+        
+    </script>
+    <style>
+        td {
+            font-size: 10rem;
+            text-align: center;
+        }
+    </style>
+</body>
+</html>
