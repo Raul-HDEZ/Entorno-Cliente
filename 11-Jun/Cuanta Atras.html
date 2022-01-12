@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Atras</title>
+</head>
+<body>
+    <center>
+        <tr>
+            <td id="dias">00</td>
+            <td>:</td>
+            <td id="horas">00</td>
+            <td>:</td>
+            <td id="minutos">00</td>
+            <td>:</td>
+            <td id="segundos">00</td>
+        </tr>
+    </center>
+
+    <script>
+
+        let dias = document.getElementById("dias");
+        let horas = document.getElementById("horas");
+        let minutos = document.getElementById("minutos");
+        let segundos = document.getElementById("segundos");
+
+        let fechafinal = new Date("01/12/2022");
+        
+        setInterval(function(){
+            let fecha = new Date();
+            let diferencia = new Date(fechafinal - fecha);
+
+            // dias.innerHTML = diferencia.getDay();
+            // horas.innerHTML = diferencia.getHours();
+            // minutos.innerHTML = diferencia.getMinutes();
+            // segundos.innerHTML = diferencia.getSeconds();
+
+            console.log(diferencia.getDay()+":"+diferencia.getHours()+":"+diferencia.getMinutes()+":"+diferencia.getSeconds());
+        },1000);
+    </script>
+</body>
+</html>

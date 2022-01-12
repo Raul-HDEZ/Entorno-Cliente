@@ -44,10 +44,11 @@
         ram=document.getElementById('ram').value;
         sd=document.getElementById('sd').value;
         procesador=document.getElementById('procesador').value;
+        pimagen=document.getElementById('pimagen').value;
         grafica=document.getElementById('grafica').value;
+        gimagen=document.getElementById('gimagen').value;
 
-        pc = new Ordenador(marca,modelo,ram,sd,procesador,grafica,);
-        //document.write(pc);
+        pc = new Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen);
         lista.push(pc);
     }
 
@@ -62,6 +63,7 @@
             document.getElementById('imagen1').src = "./img/" +lista[i].procesador+".jpg";
             document.getElementById('imagen2').src = "./img/" +lista[i].grafica+".jpg";
             console.log(lista[i]);
+            document.write(lista[i]+"<br>");
         }
     }
 
