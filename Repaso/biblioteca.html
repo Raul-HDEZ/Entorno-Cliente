@@ -27,6 +27,9 @@
             this.editorial = edito;
             this.anno = year;
             this.signature = signatura;
+            this.algo = function(){
+                console.log("LLamando a la funcion algo "+this.titulo);
+            }
         }
         var biblioteca = new Array();
 
@@ -58,6 +61,7 @@
                     document.getElementById('editorial').value = biblioteca[i].editorial;
                     document.getElementById('publicacion').value = biblioteca[i].anno;
                     document.getElementById('signatura').value = biblioteca[i].signature;
+                    biblioteca[i].algo();
                 }
             }
         }

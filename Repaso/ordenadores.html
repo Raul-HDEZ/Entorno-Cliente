@@ -8,12 +8,14 @@
 </head>
 <body>
     <form>
-        Marca <input type="text" id='marca'><br><br>
+        Marca <input type="text" id="marca"><br><br>
         Modelo <input type="text" id="modelo"> <br><br>
         RAM <input type="text" id="ram"><br><br>
         SD  <input type="text" id="sd"> <br><br>
-        Procesador <input type="text" id="procesador"><input type="file" id="pimagen"><br><br>
-        Grafica <input type="text" id="grafica"><input type="file" id="gimagen"><br><br>
+        Procesador <input type="text" id="procesador"><br><br>
+        <img src="" id="imagen1"><br><br>
+        Grafica <input type="text" id="grafica"><br><br>
+        <img src="" id="imagen2"><br><br>
         
         <input type="button" id="añadir" value="AÑADIR" onclick="añade()"><br><br>
         <input type="button" id="consultar" value="CONSULTAR" onclick="consulta()">
@@ -21,40 +23,44 @@
 </body>
 
 <script>
-    function Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen) {
+    function Ordenador(marca,modelo,ram,sd,procesador,grafica) {
         this.marca=marca;
         this.modelo=modelo;
         this.ram=ram;
         this.sd=sd;
         this.procesador=procesador;
-        this.pimagen=pimagen;
         this.grafica=grafica;
-        this.gimagen=gimagen;
     }
 
     Ordenador.prototype.toString = function() {
-        return "Marca: "+this.marca+" Modelo: "+this.modelo+" Ram: "+this.ram+" SD: "+this.sd+" Procesador: "+this.procesador+" - "+this.pimagen+" Grafica: "+this.grafica+" - "+this.gimagen;
+        return "Marca: "+this.marca+" Modelo: "+this.modelo+" Ram: "+this.ram+" SD: "+this.sd+" Procesador: "+this.procesador+" Grafica: "+this.gimagen;
     }
 
     lista = new Array();
 
     function añade() {
         marca=document.getElementById('marca').value;
-        modelo=document.getElementById('marca').value;
-        ram=document.getElementById('marca').value;
-        sd=document.getElementById('marca').value;
-        procesador=document.getElementById('marca').value;
-        pimagen=document.getElementById('pimagen').value;
-        grafica=document.getElementById('marca').value;
-        gimagen=document.getElementById('gimagen').value;
+        modelo=document.getElementById('modelo').value;
+        ram=document.getElementById('ram').value;
+        sd=document.getElementById('sd').value;
+        procesador=document.getElementById('procesador').value;
+        grafica=document.getElementById('grafica').value;
 
-        pc = new Ordenador(marca,modelo,ram,sd,procesador,pimagen,grafica,gimagen);
-        document.write(pc);
+        pc = new Ordenador(marca,modelo,ram,sd,procesador,grafica,);
+        //document.write(pc);
         lista.push(pc);
     }
 
     function consulta() {
         for (let i = 0; i < lista.length; i++) {
+            document.getElementById('marca').value = lista[i].marca;
+            document.getElementById('modelo').value = lista[i].modelo;
+            document.getElementById('ram').value = lista[i].ram;
+            document.getElementById('sd').value = lista[i].sd;
+            document.getElementById('procesador').value = lista[i].procesador;
+            document.getElementById('grafica').value = lista[i].grafica;
+            document.getElementById('imagen1').src = "./img/" +lista[i].procesador+".jpg";
+            document.getElementById('imagen2').src = "./img/" +lista[i].grafica+".jpg";
             console.log(lista[i]);
         }
     }
