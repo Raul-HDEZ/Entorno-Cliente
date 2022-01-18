@@ -17,6 +17,7 @@
         var izq = document.getElementsByTagName('input')[0];
         var dcha = document.getElementsByTagName('input')[1];
         var num = 1;
+        const nfotos = 4;
         setInterval(() => {
             if (dcha.checked == true) {
                 cambiardcha();
@@ -24,7 +25,7 @@
         }, 5000);
         
         function cambiardcha() {
-            if (num==4) {
+            if (num==nfotos) {
                 num = 1;
             }else num++;
             img.src=num+".jpg"
@@ -32,7 +33,7 @@
 
         function cambiarizq() {
             if (num==1) {
-                num = 4;
+                num = nfotos;
             }else num--;
             img.src=num+".jpg"
         }
