@@ -1,0 +1,34 @@
+<html>
+<head><title>Hola</title>
+</head>
+<body> 
+<p>Puede elegir el color de fondo que desea para visualizar nuestra p�gina Web </p><br>
+<select onchange="fondo(this.value)">
+  <option value='red'>Rojo</option>
+  <option value='blue'>Azul</option>
+  <option value='green'>Verde</option>
+  <option value='yellow'>Amarillo</option>
+</select>
+<br>
+<p> Elija el color que desea para el texto </p>
+<select onchange="texto(this.value)">
+  <option value='black'>Negro</option>
+  <option value='blue'>Azul</option>
+  <option value='green'>Verde</option>
+  <option value='yellow'>Amarillo</option>
+ </select>
+ <br/><br/>
+<button type='button' onclick="fondo('white'); texto('black')">Reestablece los colores por defecto</button>
+
+<script>
+  function fondo(color) {
+    document.body.style.backgroundColor = color;
+  }
+
+  function texto(color) {
+    document.body.style.color = color;
+  }
+
+</script>
+</body>
+</html>
