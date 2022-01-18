@@ -23,10 +23,17 @@
 <script>
   function fondo(color) {
     document.body.style.backgroundColor = color;
+    localStorage.setItem("Fondo", color);
   }
 
   function texto(color) {
     document.body.style.color = color;
+    localStorage.setItem("Texto", color);
+  }
+
+  window.onload = function() {
+    document.body.style.backgroundColor =  localStorage.getItem("Fondo");
+    document.body.style.color = color = localStorage.getItem("Texto");
   }
 
 </script>
