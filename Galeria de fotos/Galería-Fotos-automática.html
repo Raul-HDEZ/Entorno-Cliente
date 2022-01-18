@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería fotos del volcán de la Palma</title>
+</head>
+<body>
+    <h1>GALERÍA DE FOTOS DE AURORAS BOREALES</h1><br><br>
+    <img src="1.jpg" alt="" width="888" height="500"><br><br>
+   <input type="radio" name="sentido" id="" >  A izquierdas <br><br>
+   <input type="radio" name="sentido" id="" checked>  A derechas   <br><br>
+    <script>
+        // obtengo los elementos del html
+        var img = document.getElementsByTagName('img')[0];
+        var izq = document.getElementsByTagName('input')[0];
+        var dcha = document.getElementsByTagName('input')[1];
+        var num = 1;
+        setInterval(() => {
+            if (dcha.checked == true) {
+                cambiardcha();
+            }else cambiarizq();
+        }, 5000);
+        
+        function cambiardcha() {
+            if (num==4) {
+                num = 1;
+            }else num++;
+            img.src=num+".jpg"
+        }
+
+        function cambiarizq() {
+            if (num==1) {
+                num = 4;
+            }else num--;
+            img.src=num+".jpg"
+        }
+    </script>
+</body>
+</html>
