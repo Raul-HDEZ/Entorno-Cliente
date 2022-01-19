@@ -16,7 +16,7 @@
         var img = document.getElementsByTagName('img')[0];
         var izq = document.getElementsByTagName('input')[0];
         var dcha = document.getElementsByTagName('input')[1];
-        var num = 1;
+        var num = 0;
         // Funciona con imagenes locales o con urls
         const arr = ["1.jpg","2.jpg","3.jpg","4.jpg","pinguino.jpg","https://atlasanimal.com/wp-content/uploads/2021/02/pinguino.jpg"];
         const nfotos = arr.length;
@@ -25,11 +25,10 @@
                 cambiardcha();
             }else cambiarizq();
 
-
         }, 3000);
         
         function cambiardcha() {
-            if (num==nfotos) {
+            if (num==nfotos-1) {
                 num = 0;
             }else num++;
             img.src=arr[num];
