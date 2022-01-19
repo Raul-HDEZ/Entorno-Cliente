@@ -17,8 +17,8 @@
         var izq = document.getElementsByTagName('input')[0];
         var dcha = document.getElementsByTagName('input')[1];
         var num = 1;
-        const nfotos = 4;
-
+        const arr = ["1.jpg","2.jpg","3.jpg","4.jpg","pinguino.jpg"];
+        const nfotos = arr.length;
         setInterval(() => {
             if (dcha.checked == true) {
                 cambiardcha();
@@ -28,19 +28,18 @@
         }, 5000);
         
         function cambiardcha() {
-            // FOTOS numeradas
             if (num==nfotos) {
-                num = 1;
+                num = 0;
             }else num++;
-            img.src=num+".jpg"
+            console.log(arr[num])
+            img.src=arr[num];
         }
 
         function cambiarizq() {
-            // FOTOS numeradas
             if (num==1) {
-                num = nfotos;
+                num = nfotos-1;
             }else num--;
-            img.src=num+".jpg"
+            img.src=arr[num];
         }
     </script>
 </body>
