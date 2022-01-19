@@ -12,11 +12,12 @@
    <input type="radio" name="sentido" id="" >  A izquierdas <br><br>
    <input type="radio" name="sentido" id="" checked>  A derechas   <br><br>
     <script>
-        // obtengo los elementos del html
+        // Obtengo los elementos del html
         var img = document.getElementsByTagName('img')[0];
         var izq = document.getElementsByTagName('input')[0];
         var dcha = document.getElementsByTagName('input')[1];
         var num = 1;
+        // Funciona con imagenes locales o con urls
         const arr = ["1.jpg","2.jpg","3.jpg","4.jpg","pinguino.jpg","https://atlasanimal.com/wp-content/uploads/2021/02/pinguino.jpg"];
         const nfotos = arr.length;
         setInterval(() => {
