@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="padre">
+  <p id="child1">Contenido del parrafo ...</p>
+  <p id="child2">Contenido del parrafo ...</p>
+  <p id="child3">Contenido del parrafo ...</p>
+</div>
+<button onclick="Obtenerhijos('padre');">Obtención de hijos</button>
+<div id="resultados"></div>
+
+<script>
+  function Obtenerhijos(id) {
+    elemento = document.getElementById(id);
+    resultados = document.getElementById('resultados');
+
+    nodos = elemento.childNodes;
+    console.log(nodos);
+    for (const nodo of nodos) {
+      if (nodo.nodeName != '#text') {
+        console.log(nodo);
+        //los clonas y los pones en verde y pones los anteriores en rojo
+      }
+    }
+  }
+</script>
+</body>
+</html>
