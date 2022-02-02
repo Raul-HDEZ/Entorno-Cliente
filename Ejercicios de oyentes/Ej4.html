@@ -14,12 +14,16 @@
     <a href="https://www.iestetuan.es">Pulsa para generar un avance y poder volver atrás con back</a>
 </body>
 <script>
-    const adelante = document.getElementById('irAdelante');
-    const atras = document.getElementById('irAtras');
+    
 
-    adelante.addEventListener("click",paradelante);
-    atras.addEventListener("click",paradetras);
-
+    window.onload = function (){
+        const adelante = document.getElementById('irAdelante');
+        const atras = document.getElementById('irAtras');
+    
+        adelante.addEventListener("click",paradelante);
+        atras.addEventListener("click",paradetras);
+    }
+    
     // Porque no puede meter el "window.history.back" directamente en el listener
     function paradelante() {
         window.history.forward();

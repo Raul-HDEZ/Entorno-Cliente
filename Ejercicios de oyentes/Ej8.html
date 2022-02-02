@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <script>
+        // creacion de la tabla
+
+        body = document.getElementsByTagName('body')[0];
+        tabla = document.createElement('table');
+
+        const nfilas=5;
+        const ncolumnas = 5;
+
+        for (let i = 0; i < nfilas; i++) {
+            fila = document.createElement('tr');
+            for (let j = 0; j < ncolumnas; j++) {
+                columna = document.createElement('td');
+                columna.addEventListener("click", doClick,false);
+                texto = document.createTextNode('Celda '+j);
+                columna.appendChild(texto);
+                fila.appendChild(columna);   
+            }
+            tabla.appendChild(fila);
+        }
+
+        body.appendChild(tabla);
+
+        function doClick(e) {
+            console.log(e.srcElement);
+            if (e.srcElement.style.background == "red") {
+                e.srcElement.style.background = "white";
+            }else e.srcElement.style.background = "red";
+            
+        }
+
+    </script>
+</body>
+</html>
