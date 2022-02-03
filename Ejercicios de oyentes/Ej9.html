@@ -16,14 +16,15 @@
         window.onload = function(){
             area = document.getElementById('click-target');
             parra = document.getElementById('mouse-over-target');
+            cuerpo = document.getElementsByTagName("body")[0];
             area.addEventListener("click",click);
             parra.addEventListener("mouseover",anular);
         }
 
         function click() {
-            if (area.style.background == "white") {
-                area.style.background = "yellow";
-            }else area.style.background = "white";
+            if (cuerpo.style.background == "white") {
+                cuerpo.style.background = "yellow";
+            }else cuerpo.style.background = "white";
         }
 
         function anular() {
