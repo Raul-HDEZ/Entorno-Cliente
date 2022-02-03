@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Pulse una tecla</h1>
+    <p id="out"></p>
     <script>
 
         window.onload = function() {
@@ -17,11 +18,18 @@
         }
 
         function abajo(e) {
-            
+            if (e.key != "0" && e.key != "Enter" && e.key != "Control" && e.key != "Alt" && e.key != "Shift" && e.key != "CapsLock") {
+                out.innerHTML += "Pulsado "+e.key+" <br>"
+            }
         }
 
         function arriba(e) {
-            
+            if (e.key == "Shift") {
+                out.innerHTML += "Pulsado Shfit <br>"
+            }
+            if (e.key == "CapsLock") {
+                out.innerHTML += "Pulsado caps lock <br>"
+            }
         }
 
     </script>
