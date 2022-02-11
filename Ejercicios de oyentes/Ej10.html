@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<body>
+    <h1>Pulse una tecla</h1>
+    <p id="out"></p>
+    <script>
+
+        window.onload = function() {
+            cuerpo = document.getElementsByTagName('body')[0];
+            cuerpo.addEventListener("keydown",abajo);
+            cuerpo.addEventListener("keyup",arriba);
+        }
+
+        function abajo(e) {
+            if (e.key != "0" && e.key != "Enter" && e.key != "Control" && e.key != "Alt" && e.key != "Shift" && e.key != "CapsLock") {
+                out.innerHTML += "Pulsado "+e.key+" <br>"
+            }
+        }
+
+        function arriba(e) {
+            if (e.key == "Shift") {
+                out.innerHTML += "Pulsado Shfit <br>"
+            }
+            if (e.key == "CapsLock") {
+                out.innerHTML += "Pulsado caps lock <br>"
+            }
+        }
+
+    </script>
+</body>
+</html>
