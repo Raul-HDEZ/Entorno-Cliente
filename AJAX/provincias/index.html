@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provincias</title>
+</head>
+
+<body>
+    <script>
+
+        window.onload = function () {
+            web = document.getElementsByTagName("body")[0];
+            enviarPeticion();
+        }
+
+        function enviarPeticion(e) {
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", gestionarPeticion, false);
+            xhr.open("GET", "provincias.json", true);
+            xhr.send(null);
+        }
+
+        function gestionarPeticion(e) {
+            if (e.target.readyState == 4 && e.target.status == 200) {
+                comunidades = JSON.parse(e.target.responseText);
+                crearSelect();
+            }
+        }
+
+        function crearProvincias(e) {
+
+            // Creo el select y el primer option
+
+            anterior = document.getElementById("provincias");
+            selector = document.createElement("select");
+            selector.id = "provincias";
+            item = document.createElement("option");
+            text = document.createTextNode("-- Provincias --");
+            item.appendChild(text);
+            selector.appendChild(item);
+
+            comunidad = e.target.value;
+
+            // Recorro todas las provincias y las añado al select
+
+            for (let i = 0; i < comunidades[comunidad].length; i++) {
+                item = document.createElement("option");
+                text = document.createTextNode(comunidades[comunidad][i]);
+                item.appendChild(text);
+                item.value = comunidades[comunidad][i];
+                selector.appendChild(item);
+            }
+            if (anterior == undefined) {
+                web.appendChild(selector);
+            } else web.replaceChild(selector, anterior);
+        }
+
+        function crearSelect() {
+
+            // Creo el select y el primer option
+
+            selector = document.createElement("select");
+            selector.addEventListener("change", crearProvincias);
+            item = document.createElement("option");
+            text = document.createTextNode("-- Comunidades --");
+            item.appendChild(text);
+            selector.appendChild(item);
+
+            // Recorro todas las provincias y las añado al select
+            for (const atrib in comunidades) {
+                item = document.createElement("option");
+                text = document.createTextNode(atrib);
+                item.appendChild(text);
+                item.value = atrib;
+                selector.appendChild(item);
+            }
+            web.appendChild(selector);
+        }
+    </script>
+</body>
+
+</html>

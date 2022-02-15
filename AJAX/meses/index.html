@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meses</title>
+</head>
+<body>
+    <input type="number" name="" id="" max="12" min="1">
+    <input type="button" value="Consultar" onclick="Enviar()">
+    <p></p>
+
+    <script>
+        
+        window.onload = function (){
+            num = document.getElementsByTagName("input")[0];
+            parra = document.getElementsByTagName("p")[0];
+        }
+
+        function Enviar() {
+            numero = num.value;
+            enviarPeticionAJAX();
+        }
+
+        function gestionarRespuesta(evento) {
+			if (evento.target.readyState == 4 && evento.target.status == 200) {
+				parra.innerHTML = evento.target.responseText;
+			}
+		}
+
+        function enviarPeticionAJAX(evento) {
+			if (num.value !=''){
+				xhr = new XMLHttpRequest();
+				xhr.addEventListener('readystatechange', gestionarRespuesta, false);
+				xhr.open('POST', 'meses.php?num='+num.value, true);
+				xhr.send(null);
+			}				
+		}
+    </script>
+</body>
+</html>
