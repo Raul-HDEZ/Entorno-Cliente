@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<head>
+    <meta charset="UTF-8">
+    <TITLE>HTML HACIA XML CON XHR</TITLE>
+
+<body>
+    <form name="form0">
+        <label>FABRICANTE DEL PROCESADOR</label><BR><input type="textbox" value=""><BR><BR>
+        <input type="button" id="bton" value="Visualizar"><BR><BR>
+        <textarea id="modelos" rows="20" cols="30"></textarea>
+    </form>
+
+    <script>
+        window.onload = function () {
+            web = document.getElementsByTagName("body")[0];
+            caja = document.getElementsByTagName("input")[0];
+            area = document.getElementsByTagName("textarea")[0];
+            bton.addEventListener("click", enviarPeticion);
+        }
+
+        function enviarPeticion(e) {
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", gestionarPeticion, false);
+            xhr.open("GET", "cpus.xml", true);
+            xhr.send(null);
+        }
+
+        function gestionarPeticion(e) {
+            msg = "";
+            if (e.target.readyState == 4 && e.target.status == 200) {
+                datos = e.target.responseXML;
+                procesadores = datos.getElementsByTagName("procesador");
+
+                for (let i = 0; i < procesadores.length; i++) {
+                    atr = procesadores[i].getAttribute('fabricante');
+                    if (caja.value == atr) {
+                        msg += "Procesador " + i + "\n"
+                        for (const element of procesadores[i].attributes) {
+                            msg += "    " + element.value + "\n";
+                        }
+                    }
+                }
+                area.value = msg;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
