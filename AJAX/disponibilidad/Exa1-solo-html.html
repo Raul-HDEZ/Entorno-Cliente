@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+	<form>
+		<table>
+			<tr>
+				<td>Nombre de usuario:</td>
+				<td><input type="text" name="Nombre" id="caja"></td>
+				<td><a href="#" id="enlace">Comprobar disponibilidad</a></td>
+				<td><button id="btn">Comprobar</button></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		window.onload = function(){
+			web = document.getElementsByTagName("body")[0];
+            btn.addEventListener("click",enviarPeticion)
+        }
+
+        function enviarPeticion(e) {
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", gestionarPeticion, false);
+            xhr.open("GET", "ajax.php", true);
+            xhr.send(null);
+        }
+
+        function gestionarPeticion(e){
+            if (e.target.readyState == 4 && e.target.status == 200) {
+                web.innerHTML += caja.value+" "+e.target.responseText;
+            }
+        }
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<body>
+    <form>
+        Título: <input type="text"><br><br>
+        Autor: <input type="text"><br><br>
+        Editorial: <input type="text"><br><br>
+        Año Publcacion: <input type="text"><br><br>
+        SIGNATURA: <input type="text"><br><br>
+        <input type="button" value="Añadir">
+        <input type="button" value="Consultar">
+        <input type="button" value="Borrar Pantalla">
+    </form>
+    <script>
+        window.onload = function () {
+            buscador = document.getElementsByTagName("input")[6];
+            buscador.addEventListener("click", enviarPeticion);
+            titulo = document.getElementsByTagName("input")[0];
+            autor = document.getElementsByTagName("input")[1];
+            editorial = document.getElementsByTagName("input")[2];
+            año = document.getElementsByTagName("input")[3];
+            signatura = document.getElementsByTagName("input")[4];
+
+        }
+
+        class Book{
+
+            constructor(titulo,autor,editorial,año,signatura){
+                this.titulo = titulo;
+                this.autor = autor;
+                this.editorial = editorial;
+                this.año = año;
+                this.signatura = signatura;
+            }
+        }
+
+        function enviarPeticion(e) {
+            datos = new Book(titulo.value, autor.value, editorial.value, año.value, signatura.value);
+            //datos.titulo = titulo.value;
+            //datos.autor = autor.value;
+            //datos.editorial = editorial.value;
+            //datos.año = año.value;
+            //sdatos.signatura = signatura.value;
+            xhr = new XMLHttpRequest();
+            xhr.addEventListener("readystatechange", gestionarPeticion, false);
+            xhr.open("POST", "php-biblioteca.php", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.send(JSON.stringify(datos));
+            console.log("ENVIO");
+            console.log(JSON.stringify(datos));
+        }
+
+        function gestionarPeticion(e) {
+            if (e.target.readyState == 4 && e.target.status == 200) {
+                console.log("RECIBO");
+                respuesta = JSON.parse(e.target.responseText);
+                console.log(respuesta);
+                console.log(respuesta.titulo);
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>
